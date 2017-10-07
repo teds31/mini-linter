@@ -6,5 +6,35 @@ let unnecessaryWords = ['extremely', 'literally', 'actually' ];
 
 let storyWords = story.split(' ');
 
-console.log(storyWords);
+console.log(storyWords.length);
 
+let betterWords = storyWords.filter(word => !unnecessaryWords.includes(word));
+
+i = 0;
+e = 0;
+o = 0;
+
+betterWords.forEach(function(word){
+  if(word === 'really'){
+    i++;
+  } else if (word === 'very'){
+    e++;
+  } else if (word === 'basically'){
+    o++;
+  }
+});
+console.log(`The word 'really' appears ${i} times`);
+console.log(`The word 'very' appears ${e} times`);
+console.log(`The word 'basically' appears ${o} times`);
+
+i = 0;
+storyWords.forEach(function(word){
+  if(word.includes('.')){
+    i++;
+  } else if(word.includes('!')){
+    i++;
+  }
+});
+console.log(`There are ${i} sentences`);
+
+console.log(betterWords.join(' '));
